@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
+use App\Models\Posts;
 
 class CategoriesController extends Controller
 {
@@ -27,7 +28,16 @@ class CategoriesController extends Controller
         ];
         return response()->json($return);
     }
+    public function relatedPosts($id){
 
+        $data = Posts::where('category_id',$id)->get();
+        $return = [
+            'status'=> 'success',
+            'data' => $data,
+            'message' => 'success'
+        ];
+        return response()->json($return);
+    }
     /**
      * Show the form for creating a new resource.
      *

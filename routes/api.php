@@ -20,5 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // http://127.0.0.1:8000/api/posts?category_id=1
 
 Route::get('/categories', 'Api\CategoriesController@index');
+Route::get('/categories/{id}', 'Api\CategoriesController@relatedPosts');
 Route::get('/posts', 'Api\PostsController@index');
 Route::get('/posts/{id}', 'Api\PostsController@show');
